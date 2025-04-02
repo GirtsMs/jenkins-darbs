@@ -79,8 +79,8 @@ def build(){
 def deploy(String environment, int port){
     echo "Deployment to ${environment} has started.."
     bat "git clone https://github.com/mtararujs/python-greetings"
-    bat "cd python-greetings && pm2 delete greetings-app-${environment} || exit 0"
-    bat "cd python-greetings && pm2 start app.py --name greetings-app-${environment} -- --port ${port}"
+    bat "cd python-greetings && node_modules\\.bin\\pm2 delete greetings-app-${environment} || exit 0"
+    bat "cd python-greetings && node_modules\\.bin\\pm2 start app.py --name greetings-app-${environment} -- --port ${port}"
 }
 
 def testing(String test_set, String environment){
