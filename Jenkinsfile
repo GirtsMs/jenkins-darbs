@@ -80,8 +80,8 @@ def deploy(String environment, int port){
     echo "Deployment to ${environment} has started.."
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings'
     bat "dir"
-    bat "pm2 delete greetings-app-${environment} || exit 0"
-    bat "pm2 start app.py --name greetings-app-${environment} -- --port ${port}"
+    bat "node_modules\\.bin\\pm2 delete greetings-app-${environment} || exit 0"
+    bat "node_modules\\.bin\\pm2 start app.py --name greetings-app-${environment} -- --port ${port}"
 }
 
 def testing(String test_set, String environment){
